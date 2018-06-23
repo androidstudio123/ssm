@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.apps.poll.dao.GradeMapper">
+
+<!-- 查询所有的课程信息 -->
+  <select id="findAll" resultType="com.briup.apps.poll.bean.Grade">
+    select * from poll_grade
+  </select>
+   
+  <!-- 根据id删除课程信息 -->
+  <delete id="deleteById" parameterType="long">
+  	delete from poll_grade where id = #{id}
+  </delete>
+  
+  <!-- 保存课程信息 -->
+  <insert id="save" parameterType="com.briup.apps.poll.bean.Grade">
+  	insert into poll_course values(null,#{name},#{description},#{scholl_id})
+  </insert>
+</mapper>
+ 
