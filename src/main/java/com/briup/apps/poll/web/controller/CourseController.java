@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,9 +57,9 @@ public String deleteCourseById(@RequestParam long id){
 	}
 }
 
-/*
-@PutMapping("updateCourse")
-public String updateCourse(Course course){
+
+@PostMapping("updateCourse")
+public String updateCourse(@RequestParam long id, Course course){
 	try{
 		courseService.update(course);
 	}catch(Exception e){
@@ -66,5 +67,5 @@ public String updateCourse(Course course){
 		return "更新失败"+e.getMessage();
 	}
 	return "更新成功";
-}*/
+}
 }

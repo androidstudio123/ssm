@@ -18,5 +18,9 @@
   <insert id="save" parameterType="com.briup.apps.poll.bean.Course">
   	insert into poll_course values(null,#{name},#{description},#{period})
   </insert>
+  
+  <update id="update" parameterType="com.briup.apps.poll.bean.Course" >
+        update poll_course set name=#{name},description=#{description},period=#{period} where id = #{id}
+      </update>
 </mapper>
  

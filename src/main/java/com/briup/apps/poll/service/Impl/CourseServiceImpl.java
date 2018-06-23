@@ -32,6 +32,12 @@ private CourseMapper courseMapper;
 			// TODO Auto-generated method stub
 			courseMapper.save(course);
 		}
+
+	@Override
+	public void update(Course course) throws Exception {
+		// TODO Auto-generated method stub
+		courseMapper.update(course);
+	}
 }
 /*
 	@Override

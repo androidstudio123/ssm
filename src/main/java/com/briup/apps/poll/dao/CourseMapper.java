@@ -20,5 +20,5 @@ public interface CourseMapper {
 	//@Select("select * from poll_course where id=#{id}")
 	//List<Course> find();
 //@Update("update poll_course set ")
-//void update(Course course);
+  void update(Course course);
 }

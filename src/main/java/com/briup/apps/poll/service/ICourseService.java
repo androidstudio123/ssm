@@ -9,5 +9,5 @@ public interface ICourseService {
  void deleteById(long id) throws Exception;
 void save(Course course) throws Exception;
 //List<Course> find() throws Exception;
-//void update(Course course) throws Exception;
+  void update(Course course) throws Exception;
 }
