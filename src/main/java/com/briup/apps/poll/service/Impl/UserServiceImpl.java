@@ -31,4 +31,10 @@ private UserMapper userMapper;
 		userMapper.save(user);
 	}
 
+	@Override
+	public void update(User user) throws Exception {
+		// TODO Auto-generated method stub
+		userMapper.update(user);
+	}
+
 }

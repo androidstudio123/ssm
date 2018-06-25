@@ -1,9 +1,8 @@
 package com.briup.apps.poll.web.controller;
 
 import java.util.ArrayList;
-
-
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,47 +10,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.apps.poll.bean.Grade;
-import com.briup.apps.poll.service.IGradeService;
+import com.briup.apps.poll.bean.Questionnaire;
+import com.briup.apps.poll.service.IQuestionnaireService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(description="年级相关接口")
+@Api(description="问卷相关接口")
 @RestController
-@RequestMapping("/grade")
-public class GradeController {
+@RequestMapping("/questionnaire")
+public class QuestionnaireController {
 	@Autowired
-	private IGradeService gradeService;
-	@ApiOperation("查询所有年级")
-	@GetMapping("findAllGrade")
-	public List<Grade> findAllCourse(){
-		List<Grade> list=new ArrayList<>();
+	private IQuestionnaireService questionnaireService;
+	@ApiOperation("查询所有问卷信息")
+	@GetMapping("findAllQuestionnaire")
+	public List<Questionnaire> findAllQuestionnaire(){
+		List<Questionnaire> list=new ArrayList<>();
 		try{
-			list=gradeService.findAll();
+			list=questionnaireService.findAll();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return list;
+		
 	}
-
-	@ApiOperation("保存年级信息")
-	@PostMapping("saveGrade")
-	public String saveCourse(Grade grade){
+	@ApiOperation(value="保存问卷信息",notes="无需输入id")
+	@PostMapping("saveQuestionnaire")
+	public String saveQuestionnaire(Questionnaire questionnaire){
 		try{
-			gradeService.save(grade);
+			questionnaireService.save(questionnaire);
 		}catch(Exception e){
 			e.printStackTrace();
 			return "保存失败"+e.getMessage();
 		}
 		return "保存成功";
 	}
-@ApiOperation("删除年级信息")
-	@GetMapping("deleteGradeById")
-	public String deleteGradeById(@RequestParam long id){
+	@ApiOperation("删除问卷信息")
+	@GetMapping("deleteQuestionnaireById")
+	public String deleteQuestionnaireById(@RequestParam long id){
 		//@Requestparam需要初始化默认值
 		try{
-			gradeService.deleteById(id);
+			questionnaireService.deleteById(id);
 			return "删除成功";
 		}catch(Exception e){
 			e.printStackTrace();
@@ -59,11 +58,11 @@ public class GradeController {
 		}
 	}
 
-@ApiOperation("更新年级信息")
-	@PostMapping("updateGrade")
-	public String updateGrade( Grade grade,@RequestParam long id){
+	@ApiOperation("更新问卷信息")
+	@PostMapping("updateQuestionnaire")
+	public String updateQuestion( Questionnaire questionnaire,@RequestParam long id){
 		try{
-			gradeService.update(grade);
+			questionnaireService.update(questionnaire);
 		}catch(Exception e){
 			e.printStackTrace();
 			return "更新失败"+e.getMessage();

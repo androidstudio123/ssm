@@ -17,4 +17,7 @@
   <insert id="save" parameterType="com.briup.apps.poll.bean.User">
   	insert into poll_user values(null,#{name},#{gender},#{birth},#{hiredate},#{type})
   </insert>
+  <update id="update" parameterType="com.briup.apps.poll.bean.User">
+  update poll_user set name=#{name},gender=#{gender},birth=#{birth},hiredate=#{hiredate},type=#{type} where id=#{id}
+  </update>
   </mapper>

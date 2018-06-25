@@ -16,7 +16,10 @@
   
   <!-- 保存课程信息 -->
   <insert id="save" parameterType="com.briup.apps.poll.bean.Grade">
-  	insert into poll_course values(null,#{name},#{description},#{scholl_id})
+  	insert into poll_grade values(null,#{name},#{description},#{scholl_id})
   </insert>
+  <update id="update" parameterType="com.briup.apps.poll.bean.Grade" >
+        update poll_grade set name=#{name},description=#{description},scholl_id=#{scholl_id} where id = #{id}
+      </update>
 </mapper>
  

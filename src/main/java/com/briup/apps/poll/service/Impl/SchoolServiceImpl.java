@@ -30,4 +30,10 @@ private SchoolMapper schoolMapper;
 		// TODO Auto-generated method stub
 		schoolMapper.save(school);
 	}
+
+	@Override
+	public void update(School school) throws Exception {
+		// TODO Auto-generated method stub
+		schoolMapper.update(school);
+	}
 }

@@ -1,6 +1,15 @@
 package com.briup.apps.poll.bean;
 
-public class User {
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+
+public class User implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@ApiModelProperty(value="用户编号")
 private Long id;
 private String name;
 private String gender;

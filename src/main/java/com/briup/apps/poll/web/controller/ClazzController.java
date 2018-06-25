@@ -10,45 +10,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.apps.poll.bean.Course;
-import com.briup.apps.poll.service.ICourseService;
+import com.briup.apps.poll.bean.Clazz;
+import com.briup.apps.poll.service.IClazzService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-@Api(description="课程相关接口")
+@Api(description="班级相关接口")
 @RestController
-@RequestMapping("/course")
-public class CourseController {
+@RequestMapping("/clazz")
+public class ClazzController {
 @Autowired
-private ICourseService courseService;
-@ApiOperation("查询所有课程信息")
-@GetMapping("findAllCourse")
-public List<Course> findAllCourse(){
-	List<Course> list=new ArrayList<>();
+private IClazzService clazzService;
+@ApiOperation("查询所有班级信息")
+@GetMapping("findAllClazz")
+public List<Clazz> findAllClazz(){
+	List<Clazz> list=new ArrayList<>();
 	try{
-		list=courseService.findAll();
+		list=clazzService.findAll();
 	}catch(Exception e){
 		e.printStackTrace();
 	}
 	return list;
+	
 }
-@ApiOperation(value="保存课程信息",notes="无需输入id")
-@PostMapping("saveCourse")
-public String saveCourse(Course course){
+@ApiOperation(value="保存班级信息",notes="无需输入id")
+@PostMapping("saveClazz")
+public String saveClazz(Clazz clazz){
 	try{
-		courseService.save(course);
+		clazzService.save(clazz);
 	}catch(Exception e){
 		e.printStackTrace();
 		return "保存失败"+e.getMessage();
 	}
 	return "保存成功";
 }
-@ApiOperation("删除课程信息")
-@GetMapping("deleteCourseById")
-public String deleteCourseById(@RequestParam long id){
+@ApiOperation("删除班级信息")
+@GetMapping("deleteClazzById")
+public String deleteClazzById(@RequestParam long id){
 	//@Requestparam需要初始化默认值
 	try{
-		courseService.deleteById(id);
+		clazzService.deleteById(id);
 		return "删除成功";
 	}catch(Exception e){
 		e.printStackTrace();
@@ -56,11 +57,11 @@ public String deleteCourseById(@RequestParam long id){
 	}
 }
 
-@ApiOperation("更新课程信息")
-@PostMapping("updateCourse")
-public String updateCourse( Course course,@RequestParam long id){
+@ApiOperation("更新班级信息")
+@PostMapping("updateClazz")
+public String updateClazz( Clazz clazz,@RequestParam long id){
 	try{
-		courseService.update(course);
+		clazzService.update(clazz);
 	}catch(Exception e){
 		e.printStackTrace();
 		return "更新失败"+e.getMessage();

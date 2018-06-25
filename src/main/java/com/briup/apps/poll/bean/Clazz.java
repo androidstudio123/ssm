@@ -4,16 +4,17 @@ import java.io.Serializable;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class Grade implements Serializable{
+public class Clazz implements Serializable{
 /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@ApiModelProperty(value="年级编号")
+	@ApiModelProperty(value="班级编号")
 private Long id;
 private String name;
 private String description;
-private Long scholl_id;
+private Long grade_id;
+private Long charge_id;
 public Long getId() {
 	return id;
 }
@@ -32,11 +33,17 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-public Long getScholl_id() {
-	return scholl_id;
+public Long getGrade_id() {
+	return grade_id;
 }
-public void setScholl_id(Long scholl_id) {
-	this.scholl_id = scholl_id;
+public void setGrade_id(Long grade_id) {
+	this.grade_id = grade_id;
+}
+public Long getCharge_id() {
+	return charge_id;
+}
+public void setCharge_id(Long charge_id) {
+	this.charge_id = charge_id;
 }
 
 }

@@ -24,11 +24,16 @@ private GradeMapper gradeMapper;
 		// TODO Auto-generated method stub
 		gradeMapper.deleteById(id);
 	}
-
 	@Override
 	public void save(Grade grade) throws Exception {
 		// TODO Auto-generated method stub
 		gradeMapper.save(grade);
+	}
+
+	@Override
+	public void update(Grade grade) throws Exception {
+		// TODO Auto-generated method stub
+		gradeMapper.update(grade);
 	}
 
 }
